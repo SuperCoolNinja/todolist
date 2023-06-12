@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
+import { ProgressBarProps } from "../../interfaces/progress-interface";
 import style from "./style.module.scss";
-
-interface ProgressBarProps {
-  value: number;
-  max: number;
-}
 
 export const ProgressBar: React.FC<ProgressBarProps> = ({ value, max }) => {
   const [progressWidth, setProgressWidth] = useState(0);
