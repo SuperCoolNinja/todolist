@@ -11,10 +11,7 @@ export const TaskContext = createContext<TasksContextType>({
 });
 
 export const Card: React.FunctionComponent = () => {
-  const [tasks, setTask] = useState<TaskType[]>([
-    { id: 0, task: "foo", isFinish: false },
-    { id: 0, task: "bar", isFinish: true },
-  ]);
+  const [tasks, setTask] = useState<TaskType[]>([]);
 
   return (
     <div className={style.card_container}>
