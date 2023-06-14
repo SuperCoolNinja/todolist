@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { createContext, useState, Dispatch, SetStateAction } from "react";
+import { createContext, useState } from "react";
 import { CardLeft } from "./card-left";
 import { CardRight } from "./card-right";
 import { TaskType, TasksContextType } from "../../interfaces/task-interface";
