@@ -6,8 +6,8 @@ import { Tasks } from "../Tasks/index.tsx";
 import style from "./style.module.scss";
 
 export const CardLeft: React.FunctionComponent = () => {
+  const {tasks, setTask } = useContext(TaskContext);
   const [value, setValue] = useState<string>("");
-  const { tasks, setTask } = useContext(TaskContext);
   const [totalTasksCount, setTotalTasksCount] = useState<number>(0);
   const [completedTasksCount, setCompletedTasksCount] = useState<number>(0);
   const [showNotification, setShowNotification] = useState<boolean>(false);

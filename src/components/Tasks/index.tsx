@@ -35,15 +35,20 @@ export const Tasks: React.FunctionComponent<{
   return (
     <ul className={style.wrapper}>
       {tasks.map((v, index) => (
-        <li className={style.item} key={v.id}>
+        <li className={`${style.item} container`} key={v.id}>
           <input
             type="checkbox"
-            className="checkbox"
+            className={style.checkbox}
             onChange={() => onChange(index)}
             checked={checks[index] || false}
           />
-          <span>{v.task}</span>
-          <button onClick={() => onDelete(v.id)} className="delete_btn">
+          <label htmlFor="myCheckbox">
+            {checks[index] && (
+              <span className={style.checkbox_icon}>&#10004;</span>
+            )}
+          </label>
+          <span className={style.task}>{v.task}</span>
+          <button onClick={() => onDelete(v.id)} className={style.delete_btn}>
             X
           </button>
         </li>
