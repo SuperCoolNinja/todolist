@@ -1,4 +1,4 @@
-j::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 4px;
 }
 
@@ -70,10 +70,10 @@ j::-webkit-scrollbar {
       color: rgb(28, 216, 100);
     }
 
-    .delete_btn {
+    .btn {
       color: white;
       font-weight: 400;
-      background: #d52d3c;
+      // background: #d52d3c;
       padding: 0.5rem 1rem;
       border: none;
       outline: none;
@@ -81,7 +81,7 @@ j::-webkit-scrollbar {
       transition: all 0.2s ease-in-out;
 
       &:hover {
-        background-color: #8b1e27;
+        // background-color: #8b1e27;
         outline: none;
         border: none;
         transform: scale(0.9);

@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
-import { TaskType } from "../../interfaces/task-interface";
+import { TasksContextType, TaskType } from "../../interfaces/task-interface";
 
 import style from "./style.module.scss";
 
-export const Tasks: React.FunctionComponent<{
-  tasks: TaskType[];
-  setTask: React.Dispatch<React.SetStateAction<TaskType[]>>;
+interface TasksProps {
+  taskContextProp: TasksContextType;
   onDelete: (id: number) => void;
-}> = ({ tasks, setTask, onDelete }) => {
+}
+
+export const Tasks: React.FunctionComponent<TasksProps> = ({
+  taskContextProp,
+  onDelete,
+}) => {
+  const { tasks, setTask, currTask, setCurrTask } = taskContextProp;
   const [checks, setChecks] = useState<boolean[]>([]);
 
   useEffect(() => {
@@ -32,9 +37,16 @@ export const Tasks: React.FunctionComponent<{
     setTask(updatedTasks);
   };
 
+  const onSelect = (id: number) => {
+    const selectedTask = tasks.find((task) => task.id === id);
+    if (selectedTask) {
+      setCurrTask(`${selectedTask.task}`);
+    }
+  };
+
   return (
     <ul className={style.wrapper}>
-      {tasks.map((v, index) => (
+      {tasks.map((v: TaskType, index: number) => (
         <li className={`${style.item} container`} key={v.id}>
           <input
             type="checkbox"
@@ -47,9 +59,17 @@ export const Tasks: React.FunctionComponent<{
               <span className={style.checkbox_icon}>&#10004;</span>
             )}
           </label>
-          <span className={style.task}>{v.task}</span>
-          <button onClick={() => onDelete(v.id)} className={style.delete_btn}>
-            X
+          <span className={style.task}>
+            {v.task} {currTask === v.task && <span>(Current Task)</span>}
+          </span>
+          <button
+            onClick={() => onSelect(v.id)}
+            className={`${style.btn} blue`}
+          >
+            Select
+          </button>
+          <button onClick={() => onDelete(v.id)} className={`${style.btn} red`}>
+            Delete
           </button>
         </li>
       ))}

@@ -4,14 +4,22 @@ import { TaskContext } from "../cards/index.tsx";
 import { Tasks } from "../Tasks/index.tsx";
 
 import style from "./style.module.scss";
+import { TasksContextType } from "../../interfaces/task-interface.ts";
 
 export const CardLeft: React.FunctionComponent = () => {
-  const { tasks, setTask } = useContext(TaskContext);
+  const { tasks, setTask, currTask, setCurrTask } = useContext(TaskContext);
   const [value, setValue] = useState<string>("");
   const [totalTasksCount, setTotalTasksCount] = useState<number>(0);
   const [completedTasksCount, setCompletedTasksCount] = useState<number>(0);
   const [showNotification, setShowNotification] = useState<boolean>(false);
   const [txtNotification, setTxtNotification] = useState<string>("");
+
+  const tasksContextProps: TasksContextType = {
+    tasks,
+    currTask,
+    setTask,
+    setCurrTask,
+  };
 
   useEffect(() => {
     setTotalTasksCount(tasks.length);
@@ -73,7 +81,8 @@ export const CardLeft: React.FunctionComponent = () => {
       </form>
 
       <h3 className={style.title}>My Tasks</h3>
-      <Tasks tasks={tasks} setTask={setTask} onDelete={onDelete} />
+
+      <Tasks taskContextProp={tasksContextProps} onDelete={onDelete} />
 
       {totalTasksCount > 0 && (
         <ProgressBar value={completedTasksCount} max={totalTasksCount} />

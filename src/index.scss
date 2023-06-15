@@ -11,7 +11,6 @@ li {
   list-style: none;
 }
 
-
 // Default value :
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -22,6 +21,20 @@ li {
 
 html {
   font-size: 62.5%;
+}
+
+.red {
+  background: #d52d3c;
+  &:hover {
+    background-color: #8b1e27;
+  }
+}
+
+.blue {
+  background: #1288e9;
+  &:hover {
+    background-color: #0b62a8;
+  }
 }
 
 a {
