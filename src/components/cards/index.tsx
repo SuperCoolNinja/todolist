@@ -2,15 +2,15 @@
 import { createContext, useEffect, useState } from "react";
 import { CardLeft } from "./card-left";
 import { CardRight } from "./card-right";
-import { TaskType, TasksContextType } from "../../interfaces/task-interface";
-import { notifType } from "../../interfaces/notification-interface";
+import { ITaskType, ITasksContextType } from "../../interfaces/task-interface";
+import { InotifType } from "../../interfaces/notification-interface";
 import { ENotifType } from "../../enums/notification-enum";
 
 
 import style from "./style.module.scss";
 
 
-export const TaskContext = createContext<TasksContextType>({
+export const TaskContext = createContext<ITasksContextType>({
   tasks: [],
   currTask: "",
   setTask: () => {},
@@ -24,14 +24,14 @@ export const TaskContext = createContext<TasksContextType>({
 });
 
 export const Card: React.FunctionComponent = () => {
-  const [tasks, setTask] = useState<TaskType[]>([]);
+  const [tasks, setTask] = useState<ITaskType[]>([]);
   const [currTask, setCurrTask] = useState<string>(
     "Not currently doing anything."
   );
   const [totalTasksCount, setTotalTasksCount] = useState<number>(0);
   const [completedTasksCount, setCompletedTasksCount] = useState<number>(0);
 
-  const [showNotif, setNotif] = useState<notifType>({
+  const [showNotif, setNotif] = useState<InotifType>({
     txt: "",
     type: ENotifType.INFO,
     bShow: false,

@@ -1,29 +1,29 @@
-import { notifType } from "./notification-interface";
+import { InotifType } from "./notification-interface";
 
-export interface TaskType {
+export interface ITaskType {
   id: number;
   task: string;
   isFinish: boolean;
 }
 
-export interface TasksProps {
-  taskContextProp: TasksContextType;
+export interface ITasksProps {
+  taskContextProp: ITasksContextType;
   onDelete: (id: number) => void;
 }
 
-export interface TasksContextType {
-  tasks: TaskType[];
+export interface ITasksContextType {
+  tasks: ITaskType[];
   currTask: string;
-  setTask: React.Dispatch<React.SetStateAction<TaskType[]>>;
+  setTask: React.Dispatch<React.SetStateAction<ITaskType[]>>;
   setCurrTask: React.Dispatch<React.SetStateAction<string>>;
-  showNotif: notifType;
-  setNotif: React.Dispatch<React.SetStateAction<notifType>>;
+  showNotif: InotifType;
+  setNotif: React.Dispatch<React.SetStateAction<InotifType>>;
 }
 
-export interface taskProp {
-  tasks: TaskType[];
+export interface ItaskProp {
+  tasks: ITaskType[];
   currTask: string;
-  setTask: React.Dispatch<React.SetStateAction<TaskType[]>>;
+  setTask: React.Dispatch<React.SetStateAction<ITaskType[]>>;
   setCurrTask: React.Dispatch<React.SetStateAction<string>>;
   onDelete: (id: number) => void;
 }

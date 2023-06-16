@@ -1,10 +1,10 @@
 import { ENotifType } from "../../enums/notification-enum";
-import { notificationProp } from "../../interfaces/notification-interface";
+import { InotificationProp } from "../../interfaces/notification-interface";
 
 
 import "./style.scss";
 
-export const Notification: React.FunctionComponent<notificationProp> = ({
+export const Notification: React.FunctionComponent<InotificationProp> = ({
   txt,
   type,
 }) => {

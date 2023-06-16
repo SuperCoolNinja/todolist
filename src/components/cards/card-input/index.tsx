@@ -1,7 +1,7 @@
-import { CardInputProps } from "../../../interfaces/cardinput-interface";
+import { ICardInputProps } from "../../../interfaces/cardinput-interface";
 import style from "./style.module.scss";
 
-export const CardInput: React.FunctionComponent<CardInputProps> = ({
+export const CardInput: React.FunctionComponent<ICardInputProps> = ({
   onSubmit,
   value,
   setValue,

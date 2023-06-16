@@ -1,7 +1,7 @@
-export interface OnDeleteSignature {
+export interface IOnDeleteSignature {
   onDelete: (id: number) => void;
 }
 
-export interface CardLeftProps {
-  onDelete: OnDeleteSignature;
+export interface ICardLeftProps {
+  onDelete: IOnDeleteSignature;
 }

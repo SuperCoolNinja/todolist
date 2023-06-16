@@ -1,9 +1,9 @@
-export interface CardWrapperBtnProp {
+export interface ICardWrapperBtnProp {
   onTaskDone: () => void;
   onTimerBegin: () => void;
 }
 
-export interface CardBtnProp {
+export interface ICardBtnProp {
   eventFunc: () => void;
   txt: string;
   color: string;

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { TasksProps, TaskType } from "../../interfaces/task-interface";
+import { ITasksProps, ITaskType } from "../../interfaces/task-interface";
 
 import style from "./style.module.scss";
 
-export const Tasks: React.FunctionComponent<TasksProps> = ({
+export const Tasks: React.FunctionComponent<ITasksProps> = ({
   taskContextProp,
   onDelete,
 }) => {
@@ -42,7 +42,7 @@ export const Tasks: React.FunctionComponent<TasksProps> = ({
 
   return (
     <ul className={style.wrapper}>
-      {tasks.map((v: TaskType, index: number) => (
+      {tasks.map((v: ITaskType, index: number) => (
         <li className={`${style.item} container`} key={v.id}>
           <input
             type="checkbox"

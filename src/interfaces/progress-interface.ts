@@ -1,11 +1,11 @@
 import { CSSProperties } from "react";
 
-export interface ProgressBarProps {
+export interface IProgressBarProps {
   value: number;
   max: number;
-  style?: ProgressStyle;
+  style?: IProgressStyle;
 }
 
-export interface ProgressStyle extends CSSProperties {
+export interface IProgressStyle extends CSSProperties {
   "--progress-width"?: string;
 }

@@ -4,17 +4,17 @@ import { TaskContext } from "../cards/index.tsx";
 import { Tasks } from "../Tasks/index.tsx";
 
 import { Notification } from "../notification/index.tsx";
-import { TasksContextType } from "../../interfaces/task-interface.ts";
+import { ITasksContextType } from "../../interfaces/task-interface.ts";
 import { ENotifType } from "../../enums/notification-enum.ts";
 
-import { OnDeleteSignature } from "../../interfaces/cardleft-interface.ts";
+import { IOnDeleteSignature } from "../../interfaces/cardleft-interface.ts";
 
 import { CardInput } from "./card-input/index.tsx";
 import { Title } from "./card-title.tsx";
 
 import style from "./style.module.scss";
 
-export const CardLeft: React.FunctionComponent<OnDeleteSignature> = ({
+export const CardLeft: React.FunctionComponent<IOnDeleteSignature> = ({
   onDelete,
 }) => {
   const { tasks, setTask, currTask, setCurrTask, showNotif, setNotif } =
@@ -24,7 +24,7 @@ export const CardLeft: React.FunctionComponent<OnDeleteSignature> = ({
   const totalTasksCount = tasks.length;
   const completedTasksCount = tasks.filter((task) => task.isFinish).length;
 
-  const tasksContextProps: TasksContextType = {
+  const tasksContextProps: ITasksContextType = {
     tasks,
     currTask,
     setTask,

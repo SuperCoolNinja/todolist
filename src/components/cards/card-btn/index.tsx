@@ -1,8 +1,8 @@
-import { CardWrapperBtnProp } from "../../../interfaces/cardbtn-interface";
+import { ICardWrapperBtnProp } from "../../../interfaces/cardbtn-interface";
 import { CardBtn } from "./btn";
 import style from "./style.module.scss";
 
-export const CardWrapperBtn: React.FunctionComponent<CardWrapperBtnProp> = ({
+export const CardWrapperBtn: React.FunctionComponent<ICardWrapperBtnProp> = ({
   onTaskDone,
   onTimerBegin,
 }) => {

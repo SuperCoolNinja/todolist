@@ -1,8 +1,8 @@
-import { CardBtnProp } from "../../../interfaces/cardbtn-interface";
+import { ICardBtnProp } from "../../../interfaces/cardbtn-interface";
 
 import style from "./style.module.scss";
 
-export const CardBtn: React.FunctionComponent<CardBtnProp> = ({
+export const CardBtn: React.FunctionComponent<ICardBtnProp> = ({
   eventFunc,
   txt,
   color,

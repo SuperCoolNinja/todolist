@@ -1,11 +1,11 @@
 import { ENotifType } from "../enums/notification-enum";
 
-export interface notificationProp {
+export interface InotificationProp {
   txt: string;
   type: ENotifType;
 }
 
-export interface notifType {
+export interface InotifType {
   txt?: string;
   type?: ENotifType;
   bShow: boolean;
