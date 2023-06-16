@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
-import { TasksContextType, TaskType } from "../../interfaces/task-interface";
+import { TasksProps, TaskType } from "../../interfaces/task-interface";
 
 import style from "./style.module.scss";
-
-interface TasksProps {
-  taskContextProp: TasksContextType;
-  onDelete: (id: number) => void;
-}
 
 export const Tasks: React.FunctionComponent<TasksProps> = ({
   taskContextProp,

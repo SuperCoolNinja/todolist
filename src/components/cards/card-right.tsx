@@ -1,7 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from "react";
-import style from "./style.module.scss";
 import { TaskContext } from "./index.tsx";
+
+import style from "./style.module.scss";
+import { CardWrapperBtn } from "./card-btn/index.tsx";
 
 export const CardRight: React.FunctionComponent = () => {
   const MAX_TIMER = 25 * 60; // 25 minutes;
@@ -66,20 +68,7 @@ export const CardRight: React.FunctionComponent = () => {
       <p className={style.currTask}>{currTask}</p>
 
       {currTask !== "Not currently doing anything." && (
-        <div className={style.wrapper_btn}>
-          <button
-            onClick={onTaskDone}
-            className={`${style.btn_bigger} btn white`}
-          >
-            I'm done ✅
-          </button>
-          <button
-            onClick={onTimerBegin}
-            className={`${style.btn_bigger} btn orange`}
-          >
-            Start 25' timer
-          </button>
-        </div>
+        <CardWrapperBtn onTaskDone={onTaskDone} onTimerBegin={onTimerBegin} />
       )}
 
       {timerBegin && (

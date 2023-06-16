@@ -1,4 +1,4 @@
-export enum NotifType {
+export enum ENotifType {
   SUCCESS,
   WARNING,
   ERROR,
