@@ -15,6 +15,12 @@ Link if you are curious : https://vitejs.dev/
 
 <br />
 
+# DEMO : 
+https://supercoolninja-todo-list.vercel.app/
+
+<br />
+
+
 > **CLI** : HOW TO USE THIS PROJECT WITH PNPM, you can also use it with yarn or npm.
 
 ```
