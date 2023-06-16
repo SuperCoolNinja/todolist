@@ -5,6 +5,8 @@ import { Tasks } from "../Tasks/index.tsx";
 
 import style from "./style.module.scss";
 import { TasksContextType } from "../../interfaces/task-interface.ts";
+import { Notification } from "../notification/index.tsx";
+import { NotifType } from "../../enums/notification-enum.ts";
 
 export const CardLeft: React.FunctionComponent = () => {
   const { tasks, setTask, currTask, setCurrTask } = useContext(TaskContext);
@@ -13,6 +15,7 @@ export const CardLeft: React.FunctionComponent = () => {
   const [completedTasksCount, setCompletedTasksCount] = useState<number>(0);
   const [showNotification, setShowNotification] = useState<boolean>(false);
   const [txtNotification, setTxtNotification] = useState<string>("");
+  const [notifType, setNotifType] = useState<NotifType>(NotifType.INFO);
 
   const tasksContextProps: TasksContextType = {
     tasks,
@@ -28,6 +31,7 @@ export const CardLeft: React.FunctionComponent = () => {
 
   useEffect(() => {
     if (completedTasksCount === totalTasksCount && totalTasksCount > 0) {
+      setNotifType(NotifType.SUCCESS);
       setTxtNotification("All tasks completed! Congratulations!");
       setShowNotification(true);
 
@@ -58,6 +62,7 @@ export const CardLeft: React.FunctionComponent = () => {
     const updatedTasks = tasks.filter((task) => task.id !== id);
     setTask(updatedTasks);
     setCompletedTasksCount(completedTasksCount - 1); // Mise à jour du compteur de tâches terminées
+    setNotifType(NotifType.INFO);
     setTxtNotification("Task deleted !");
     setShowNotification(true);
     setCurrTask("Not currently doing anything.");
@@ -89,9 +94,7 @@ export const CardLeft: React.FunctionComponent = () => {
       )}
 
       {showNotification && (
-        <div className={`${style.notification} ${style.success}`}>
-          {txtNotification}
-        </div>
+        <Notification txt={txtNotification} type={notifType} />
       )}
     </div>
   );
