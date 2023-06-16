@@ -82,5 +82,46 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+
+    .title {
+      text-align: center;
+      font-size: 4rem;
+      margin-top: 4rem;
+    }
+
+    .currTask {
+      display: flex;
+      justify-content: center;
+      margin: 1rem auto;
+      height: 30%;
+      width: 90%;
+      font-size: 1.8rem;
+      font-weight: 600;
+      overflow: auto;
+      overflow-x: hidden;
+    }
+
+    .wrapper_btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+
+      .btn_bigger {
+        color: rgb(255, 255, 255);
+        padding: 1rem;
+        font-size: 2rem;
+        font-weight: bolder;
+        border: 0.1rem solid rgba(65, 65, 65, 0.205);
+      }
+    }
+
+    .timer
+    {
+      text-align: center;
+      font-size: 4rem;
+      margin: 3rem auto;
+      font-weight: bold;
+    }
   }
 }

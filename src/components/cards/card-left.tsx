@@ -60,7 +60,7 @@ export const CardLeft: React.FunctionComponent = () => {
     setCompletedTasksCount(completedTasksCount - 1); // Mise à jour du compteur de tâches terminées
     setTxtNotification("Task deleted !");
     setShowNotification(true);
-
+    setCurrTask("Not currently doing anything.");
     const timeout = setTimeout(() => {
       setShowNotification(false);
     }, 2000);

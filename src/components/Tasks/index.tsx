@@ -35,6 +35,7 @@ export const Tasks: React.FunctionComponent<TasksProps> = ({
     });
 
     setTask(updatedTasks);
+    setCurrTask("Not currently doing anything.");
   };
 
   const onSelect = (id: number) => {
@@ -62,13 +63,10 @@ export const Tasks: React.FunctionComponent<TasksProps> = ({
           <span className={style.task}>
             {v.task} {currTask === v.task && <span>(Current Task)</span>}
           </span>
-          <button
-            onClick={() => onSelect(v.id)}
-            className={`${style.btn} blue`}
-          >
+          <button onClick={() => onSelect(v.id)} className={`btn blue`}>
             Select
           </button>
-          <button onClick={() => onDelete(v.id)} className={`${style.btn} red`}>
+          <button onClick={() => onDelete(v.id)} className={`btn red`}>
             Delete
           </button>
         </li>

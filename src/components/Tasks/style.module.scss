@@ -69,23 +69,5 @@
       font-size: 2rem;
       color: rgb(28, 216, 100);
     }
-
-    .btn {
-      color: white;
-      font-weight: 400;
-      // background: #d52d3c;
-      padding: 0.5rem 1rem;
-      border: none;
-      outline: none;
-
-      transition: all 0.2s ease-in-out;
-
-      &:hover {
-        // background-color: #8b1e27;
-        outline: none;
-        border: none;
-        transform: scale(0.9);
-      }
-    }
   }
 }
