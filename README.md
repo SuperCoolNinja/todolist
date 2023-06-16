@@ -9,14 +9,16 @@
 
 **Link to PNPM : https://pnpm.io/**
 
-### Project template generated with **Vite** :
-
-Link if you are curious : https://vitejs.dev/
+### Project template generated with **<a href="https://vitejs.dev/" target="_blank">Vite</a>** 
 
 <br />
 
-# DEMO : 
-https://supercoolninja-todo-list.vercel.app/
+![Visual](https://cdn.discordapp.com/attachments/554479498721099787/1119192278997667840/image.png)
+
+<br />
+
+# **Todo List Demo** : 
+## https://supercoolninja-todo-list.vercel.app/
 
 <br />
 
