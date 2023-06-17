@@ -9,6 +9,7 @@ export interface ITaskType {
 export interface ITasksProps {
   taskContextProp: ITasksContextType;
   onDelete: (id: number) => void;
+  storeTasksInLocalStorage : (tasks: ITaskType[]) => void;
 }
 
 export interface ITasksContextType {

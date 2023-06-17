@@ -1,6 +1,5 @@
 import { ITaskType } from "./task-interface";
 
-export interface ICardLeftProps {
-  onDelete: (id: number) => void;
+export interface ICardRightProp {
   storeTasksInLocalStorage: (tasks: ITaskType[]) => void;
 }

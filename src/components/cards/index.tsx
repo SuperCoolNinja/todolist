@@ -6,9 +6,7 @@ import { ITaskType, ITasksContextType } from "../../interfaces/task-interface";
 import { InotifType } from "../../interfaces/notification-interface";
 import { ENotifType } from "../../enums/notification-enum";
 
-
 import style from "./style.module.scss";
-
 
 export const TaskContext = createContext<ITasksContextType>({
   tasks: [],
@@ -37,6 +35,19 @@ export const Card: React.FunctionComponent = () => {
     bShow: false,
   });
 
+  const storeTasksInLocalStorage = (tasks: ITaskType[]) => {
+    const tasksJSON = JSON.stringify(tasks);
+    localStorage.setItem("tasks", tasksJSON);
+  };
+
+  useEffect(() => {
+    const storedTasks = localStorage.getItem("tasks");
+    if (storedTasks) {
+      const parsedTasks = JSON.parse(storedTasks);
+      setTask(parsedTasks);
+    }
+  }, []);
+
   useEffect(() => {
     setTotalTasksCount(tasks.length);
     setCompletedTasksCount(tasks.filter((task) => task.isFinish).length);
@@ -55,6 +66,8 @@ export const Card: React.FunctionComponent = () => {
         setTask([]);
       }, 2000);
 
+      storeTasksInLocalStorage([]);
+
       return () => clearTimeout(timeout);
     }
   }, [completedTasksCount, totalTasksCount, setTask]);
@@ -62,7 +75,8 @@ export const Card: React.FunctionComponent = () => {
   const onDelete = (id: number) => {
     const updatedTasks = tasks.filter((task) => task.id !== id);
     setTask(updatedTasks);
-    setCompletedTasksCount(completedTasksCount - 1); // Mise à jour du compteur de tâches terminées
+    storeTasksInLocalStorage(updatedTasks);
+    setCompletedTasksCount(completedTasksCount - 1);
 
     setNotif({
       txt: "Task deleted !",
@@ -84,8 +98,11 @@ export const Card: React.FunctionComponent = () => {
       <TaskContext.Provider
         value={{ tasks, setTask, currTask, setCurrTask, showNotif, setNotif }}
       >
-        <CardLeft onDelete={onDelete} />
-        <CardRight />
+        <CardLeft
+          onDelete={onDelete}
+          storeTasksInLocalStorage={storeTasksInLocalStorage}
+        />
+        <CardRight storeTasksInLocalStorage={storeTasksInLocalStorage} />
       </TaskContext.Provider>
     </div>
   );

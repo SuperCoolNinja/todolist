@@ -4,8 +4,11 @@ import { TaskContext } from "./index.tsx";
 
 import style from "./style.module.scss";
 import { CardWrapperBtn } from "./card-btn/index.tsx";
+import { ICardRightProp } from "../../interfaces/cardright-interface.ts";
 
-export const CardRight: React.FunctionComponent = () => {
+export const CardRight: React.FunctionComponent<ICardRightProp> = ({
+  storeTasksInLocalStorage,
+}) => {
   const MAX_TIMER = 25 * 60; // 25 minutes;
   const { tasks, setTask, currTask, setCurrTask } = useContext(TaskContext);
   const [remainingTime, setRemaningTime] = useState(MAX_TIMER);
@@ -57,6 +60,7 @@ export const CardRight: React.FunctionComponent = () => {
     });
 
     setTask(updatedTasks);
+    storeTasksInLocalStorage(updatedTasks);
     setCurrTask("Not currently doing anything.");
   };
 

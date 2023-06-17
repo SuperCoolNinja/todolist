@@ -6,6 +6,7 @@ import style from "./style.module.scss";
 export const Tasks: React.FunctionComponent<ITasksProps> = ({
   taskContextProp,
   onDelete,
+  storeTasksInLocalStorage,
 }) => {
   const { tasks, setTask, currTask, setCurrTask } = taskContextProp;
   const [checks, setChecks] = useState<boolean[]>([]);
@@ -30,6 +31,8 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
     });
 
     setTask(updatedTasks);
+    storeTasksInLocalStorage(updatedTasks);
+
     setCurrTask("Not currently doing anything.");
   };
 

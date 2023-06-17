@@ -7,15 +7,16 @@ import { Notification } from "../notification/index.tsx";
 import { ITasksContextType } from "../../interfaces/task-interface.ts";
 import { ENotifType } from "../../enums/notification-enum.ts";
 
-import { IOnDeleteSignature } from "../../interfaces/cardleft-interface.ts";
+import { ICardLeftProps } from "../../interfaces/cardleft-interface.ts";
 
 import { CardInput } from "./card-input/index.tsx";
 import { Title } from "./card-title.tsx";
 
 import style from "./style.module.scss";
 
-export const CardLeft: React.FunctionComponent<IOnDeleteSignature> = ({
+export const CardLeft: React.FunctionComponent<ICardLeftProps> = ({
   onDelete,
+  storeTasksInLocalStorage,
 }) => {
   const { tasks, setTask, currTask, setCurrTask, showNotif, setNotif } =
     useContext(TaskContext);
@@ -43,6 +44,7 @@ export const CardLeft: React.FunctionComponent<IOnDeleteSignature> = ({
         isFinish: false,
       };
       setTask([...tasks, newTask]);
+      storeTasksInLocalStorage([...tasks, newTask]);
       setValue("");
     }
   };
@@ -53,7 +55,11 @@ export const CardLeft: React.FunctionComponent<IOnDeleteSignature> = ({
 
       <Title />
 
-      <Tasks taskContextProp={tasksContextProps} onDelete={onDelete} />
+      <Tasks
+        taskContextProp={tasksContextProps}
+        onDelete={onDelete}
+        storeTasksInLocalStorage={storeTasksInLocalStorage}
+      />
 
       {totalTasksCount > 0 && (
         <ProgressBar value={completedTasksCount} max={totalTasksCount} />
