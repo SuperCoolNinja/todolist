@@ -14,6 +14,9 @@ import { Title } from "./card-title.tsx";
 
 import style from "./style.module.scss";
 
+import { v4 as uuidv4 } from 'uuid';
+
+
 export const CardLeft: React.FunctionComponent<ICardLeftProps> = ({
   onDelete,
   storeTasksInLocalStorage,
@@ -39,7 +42,7 @@ export const CardLeft: React.FunctionComponent<ICardLeftProps> = ({
 
     if (value.trim() !== "") {
       const newTask = {
-        id: tasks.length + 1,
+        id: uuidv4(),
         task: value,
         isFinish: false,
       };

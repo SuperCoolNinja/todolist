@@ -8,6 +8,10 @@ import { ENotifType } from "../../enums/notification-enum";
 
 import style from "./style.module.scss";
 
+
+
+
+
 export const TaskContext = createContext<ITasksContextType>({
   tasks: [],
   currTask: "",
@@ -72,7 +76,7 @@ export const Card: React.FunctionComponent = () => {
     }
   }, [completedTasksCount, totalTasksCount, setTask]);
 
-  const onDelete = (id: number) => {
+  const onDelete = (id: string) => {
     const updatedTasks = tasks.filter((task) => task.id !== id);
     setTask(updatedTasks);
     storeTasksInLocalStorage(updatedTasks);

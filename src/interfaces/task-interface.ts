@@ -1,7 +1,7 @@
 import { InotifType } from "./notification-interface";
 
 export interface ITaskType {
-  id: number;
+  id: string;
   task: string;
   isFinish: boolean;
 }
