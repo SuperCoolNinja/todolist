@@ -36,7 +36,7 @@ export const Tasks: React.FunctionComponent<ITasksProps> = ({
     setCurrTask("Not currently doing anything.");
   };
 
-  const onSelect = (id: number) => {
+  const onSelect = (id: string) => {
     const selectedTask = tasks.find((task) => task.id === id);
     if (selectedTask) {
       setCurrTask(`${selectedTask.task}`);

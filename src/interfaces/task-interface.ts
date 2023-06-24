@@ -8,7 +8,7 @@ export interface ITaskType {
 
 export interface ITasksProps {
   taskContextProp: ITasksContextType;
-  onDelete: (id: number) => void;
+  onDelete: (id: string) => void;
   storeTasksInLocalStorage : (tasks: ITaskType[]) => void;
 }
 
