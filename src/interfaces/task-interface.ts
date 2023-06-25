@@ -19,6 +19,8 @@ export interface ITasksContextType {
   setCurrTask: React.Dispatch<React.SetStateAction<string>>;
   showNotif: InotifType;
   setNotif: React.Dispatch<React.SetStateAction<InotifType>>;
+  currTaskId: string;
+  setCurrTaskId: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface ItaskProp {
@@ -26,5 +28,7 @@ export interface ItaskProp {
   currTask: string;
   setTask: React.Dispatch<React.SetStateAction<ITaskType[]>>;
   setCurrTask: React.Dispatch<React.SetStateAction<string>>;
+  currTaskId: string;
+  setCurrTaskId: React.Dispatch<React.SetStateAction<string>>;
   onDelete: (id: number) => void;
 }

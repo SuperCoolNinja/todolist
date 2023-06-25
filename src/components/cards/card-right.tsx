@@ -10,7 +10,7 @@ export const CardRight: React.FunctionComponent<ICardRightProp> = ({
   storeTasksInLocalStorage,
 }) => {
   const MAX_TIMER = 25 * 60; // 25 minutes;
-  const { tasks, setTask, currTask, setCurrTask } = useContext(TaskContext);
+  const { tasks, setTask, currTask, setCurrTask, currTaskId, setCurrTaskId } = useContext(TaskContext);
   const [remainingTime, setRemaningTime] = useState(MAX_TIMER);
   const [timerId, setTimerId] = useState<number | null>(null);
   const [timerBegin, setTimerBegin] = useState<boolean>(false);
@@ -53,7 +53,7 @@ export const CardRight: React.FunctionComponent<ICardRightProp> = ({
 
   const onTaskDone = () => {
     const updatedTasks = tasks.map((v) => {
-      if (v.task === currTask) {
+      if (v.id === currTaskId) {
         return { ...v, isFinish: true };
       }
       return v;
@@ -62,6 +62,7 @@ export const CardRight: React.FunctionComponent<ICardRightProp> = ({
     setTask(updatedTasks);
     storeTasksInLocalStorage(updatedTasks);
     setCurrTask("Not currently doing anything.");
+    setCurrTaskId("");
   };
 
   const onTimerBegin = () => setTimerBegin(true);

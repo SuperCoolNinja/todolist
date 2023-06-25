@@ -23,12 +23,17 @@ export const TaskContext = createContext<ITasksContextType>({
     bShow: false,
   },
   setNotif: () => {},
+  currTaskId : "",
+  setCurrTaskId :() => {},
 });
 
 export const Card: React.FunctionComponent = () => {
   const [tasks, setTask] = useState<ITaskType[]>([]);
   const [currTask, setCurrTask] = useState<string>(
     "Not currently doing anything."
+  );
+  const [currTaskId, setCurrTaskId] = useState<string>(
+    ""
   );
   const [totalTasksCount, setTotalTasksCount] = useState<number>(0);
   const [completedTasksCount, setCompletedTasksCount] = useState<number>(0);
@@ -100,7 +105,7 @@ export const Card: React.FunctionComponent = () => {
   return (
     <div className={style.card_container}>
       <TaskContext.Provider
-        value={{ tasks, setTask, currTask, setCurrTask, showNotif, setNotif }}
+        value={{ tasks, setTask, currTask, setCurrTask, showNotif, setNotif, currTaskId, setCurrTaskId }}
       >
         <CardLeft
           onDelete={onDelete}

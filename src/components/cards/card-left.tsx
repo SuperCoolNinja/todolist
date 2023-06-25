@@ -21,7 +21,7 @@ export const CardLeft: React.FunctionComponent<ICardLeftProps> = ({
   onDelete,
   storeTasksInLocalStorage,
 }) => {
-  const { tasks, setTask, currTask, setCurrTask, showNotif, setNotif } =
+  const { tasks, setTask, currTask, setCurrTask, showNotif, setNotif, currTaskId, setCurrTaskId } =
     useContext(TaskContext);
   const [value, setValue] = useState<string>("");
 
@@ -35,6 +35,8 @@ export const CardLeft: React.FunctionComponent<ICardLeftProps> = ({
     setCurrTask,
     showNotif,
     setNotif,
+    currTaskId,
+    setCurrTaskId
   };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
