@@ -1,5 +1,5 @@
 # TodoList
-## A WIP modern todo list made with vite using React typescript to practise my typescript logic.
+## A modern todo list made with vite using React typescript to practise my typescript logic.
 
 <br>
 
